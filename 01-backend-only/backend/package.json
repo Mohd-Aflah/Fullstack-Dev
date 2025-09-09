@@ -1,0 +1,36 @@
+{
+  "name": "intern-management-backend",
+  "version": "1.0.0",
+  "description": "Backend-only learning version - Pure Appwrite implementation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "setup": "node index.js --setup",
+    "test": "node index.js --test"
+  },
+  "keywords": [
+    "nodejs",
+    "appwrite",
+    "intern-management",
+    "backend",
+    "learning"
+  ],
+  "author": {
+    "name": "Mohammed Aflah",
+    "github": "Mohd-Aflah",
+    "role": "Fullstack & Backend Developer, Backend Lead at Pro26"
+  },
+  "license": "Pro26 & Mohd-Aflah",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-appwrite": "^17.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

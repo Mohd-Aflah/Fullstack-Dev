@@ -1,0 +1,35 @@
+{
+  "name": "intern-management-production",
+  "version": "1.0.0",
+  "description": "Enterprise Production Deployment - Production-ready Appwrite backend with security and optimization",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "appwrite functions createDeployment --functionId=intern-management",
+    "test": "node index.js --test",
+    "setup": "node index.js --setup"
+  },
+  "keywords": [
+    "nodejs",
+    "appwrite",
+    "intern-management",
+    "backend",
+    "production",
+    "enterprise",
+    "pro26",
+    "deployment"
+  ],
+  "author": {
+    "name": "Mohammed Aflah",
+    "email": "hr@pro26.in",
+    "github": "Mohd-Aflah",
+    "company": "Pro26",
+    "role": "Fullstack & Backend Developer, Backend Lead"
+  },
+  "license": "Pro26 & Mohd-Aflah",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-appwrite": "^17.2.0"
+  }
+}

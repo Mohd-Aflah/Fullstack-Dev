@@ -1,0 +1,38 @@
+{
+  "name": "intern-management-fullstack-backend",
+  "version": "1.0.0",
+  "description": "Enterprise Full-Stack Integration - Backend services with Appwrite for full-stack learning",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "test": "node index.js",
+    "appwrite": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "appwrite",
+    "intern-management",
+    "backend",
+    "fullstack",
+    "enterprise",
+    "pro26",
+    "integration"
+  ],
+  "author": {
+    "name": "Mohammed Aflah",
+    "email": "hr@pro26.in",
+    "github": "Mohd-Aflah",
+    "company": "Pro26",
+    "role": "Fullstack & Backend Developer, Backend Lead"
+  },
+  "license": "Pro26 & Mohd-Aflah",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-appwrite": "^17.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

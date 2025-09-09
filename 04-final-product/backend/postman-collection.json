@@ -1,0 +1,335 @@
+{
+  "info": {
+    "name": "Intern Management System - Clean API",
+    "description": "Clean API collection for Intern Management with task status tracking and custom document IDs",
+    "version": "2.1.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "https://688a1c420012de357297.fra.appwrite.run",
+      "type": "string"
+    },
+    {
+      "key": "INTERN_ID",
+      "value": "custom-intern-001",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Intern CRUD Operations",
+      "item": [
+        {
+          "name": "GET All Interns",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"]
+            },
+            "description": "Get all interns from the system"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Specific Intern",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns/{{INTERN_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns", "{{INTERN_ID}}"]
+            },
+            "description": "Get a specific intern by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Intern with Custom ID",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documentId\": \"custom-intern-001\",\n  \"internName\": \"John Doe\",\n  \"batch\": \"2025-Summer\",\n  \"roles\": [\"Frontend Developer\"],\n  \"currentProjects\": [\"E-commerce Website\"],\n  \"tasksAssigned\": [\n    {\n      \"id\": \"task-1\",\n      \"title\": \"Create Login Page\",\n      \"description\": \"Design and implement user login functionality\",\n      \"status\": \"open\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-2\",\n      \"title\": \"Setup Navigation\",\n      \"description\": \"Create responsive navigation menu\",\n      \"status\": \"todo\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/interns",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"]
+            },
+            "description": "Create a new intern with a custom document ID"
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Intern (Auto ID)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internName\": \"Jane Smith\",\n  \"batch\": \"2025-Fall\",\n  \"roles\": [\"Backend Developer\"],\n  \"currentProjects\": [\"API Development\"],\n  \"tasksAssigned\": [\n    {\n      \"id\": \"task-auto-1\",\n      \"title\": \"Database Schema\",\n      \"description\": \"Design and implement database schema\",\n      \"status\": \"working\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/interns",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"]
+            },
+            "description": "Create a new intern with auto-generated ID (no documentId specified)"
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Update Intern",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roles\": [\"Senior Frontend Developer\", \"Team Lead\"],\n  \"currentProjects\": [\"E-commerce Website\", \"Mobile App\"],\n  \"tasksAssigned\": [\n    {\n      \"id\": \"task-1\",\n      \"title\": \"Create Login Page\",\n      \"description\": \"Design and implement user login functionality\",\n      \"status\": \"completed\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T12:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-2\",\n      \"title\": \"Setup Navigation\",\n      \"description\": \"Create responsive navigation menu\",\n      \"status\": \"working\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T12:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-3\",\n      \"title\": \"Code Review\",\n      \"description\": \"Review team member code\",\n      \"status\": \"pending\",\n      \"assignedAt\": \"2025-07-30T12:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T12:00:00.000Z\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/interns/{{INTERN_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns", "{{INTERN_ID}}"]
+            },
+            "description": "Update intern data and task statuses"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Intern",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns/{{INTERN_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns", "{{INTERN_ID}}"]
+            },
+            "description": "Delete an intern from the system"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Filter & Query Operations",
+      "item": [
+        {
+          "name": "Filter by Batch",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns?batch=2025-Summer",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"],
+              "query": [
+                {
+                  "key": "batch",
+                  "value": "2025-Summer",
+                  "description": "Filter by specific batch"
+                }
+              ]
+            },
+            "description": "Get all interns from a specific batch"
+          },
+          "response": []
+        },
+        {
+          "name": "Search by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns?search=John",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "John",
+                  "description": "Search interns by name"
+                }
+              ]
+            },
+            "description": "Search interns by name"
+          },
+          "response": []
+        },
+        {
+          "name": "Pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns?limit=10&offset=0",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Limit results to 10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Start from first record"
+                }
+              ]
+            },
+            "description": "Get first 10 interns with pagination"
+          },
+          "response": []
+        },
+        {
+          "name": "Order by Creation Date",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns?sort=createdAt&order=desc",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "createdAt",
+                  "description": "Sort by creation date"
+                },
+                {
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Order descending (newest first)"
+                }
+              ]
+            },
+            "description": "Get all interns ordered by creation date"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Task Status Example",
+      "item": [
+        {
+          "name": "Intern with All Task Statuses",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documentId\": \"demo-intern-all-statuses\",\n  \"internName\": \"Demo User\",\n  \"batch\": \"2025-Demo\",\n  \"roles\": [\"Full Stack Developer\"],\n  \"currentProjects\": [\"Demo Project\"],\n  \"tasksAssigned\": [\n    {\n      \"id\": \"task-1\",\n      \"title\": \"Completed Task\",\n      \"description\": \"This task is completed\",\n      \"status\": \"completed\",\n      \"assignedAt\": \"2025-07-29T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-2\",\n      \"title\": \"Working Task\",\n      \"description\": \"This task is in progress\",\n      \"status\": \"working\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-3\",\n      \"title\": \"Todo Task\",\n      \"description\": \"This task is in todo\",\n      \"status\": \"todo\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-4\",\n      \"title\": \"Open Task\",\n      \"description\": \"This task is open\",\n      \"status\": \"open\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-5\",\n      \"title\": \"Pending Task\",\n      \"description\": \"This task is pending\",\n      \"status\": \"pending\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    },\n    {\n      \"id\": \"task-6\",\n      \"title\": \"Deferred Task\",\n      \"description\": \"This task is deferred\",\n      \"status\": \"deferred\",\n      \"assignedAt\": \"2025-07-30T10:00:00.000Z\",\n      \"updatedAt\": \"2025-07-30T10:00:00.000Z\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/interns",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns"]
+            },
+            "description": "Create intern with all task statuses: open, completed, todo, working, deferred, pending"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Utility Operations",
+      "item": [
+        {
+          "name": "Get Document Count",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns/count",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns", "count"]
+            },
+            "description": "Get total number of interns"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Task Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/interns/tasks/summary",
+              "host": ["{{BASE_URL}}"],
+              "path": ["interns", "tasks", "summary"]
+            },
+            "description": "Get summary of all task statuses across all interns"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Auto-generate timestamps for examples",
+          "const now = new Date().toISOString();",
+          "const dayAgo = new Date(Date.now() - 86400000).toISOString();",
+          "pm.environment.set('current_timestamp', now);",
+          "pm.environment.set('day_ago_timestamp', dayAgo);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Basic response validation",
+          "pm.test('Status code is successful', function () {",
+          "    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+          "});",
+          "",
+          "pm.test('Response time is less than 2000ms', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+          "});",
+          "",
+          "// Log response for debugging",
+          "console.log('Response:', pm.response.json());"
+        ]
+      }
+    }
+  ]
+}
